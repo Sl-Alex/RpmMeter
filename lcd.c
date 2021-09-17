@@ -24,7 +24,7 @@ static uint32_t lcd_cs_port;
 static uint16_t lcd_cs_gpio;
 
 const uint8_t lcd_digits_lut[10] = {
-    LCD_SYMS_0, LCD_SYMS_1, LCD_SYMS_0, LCD_SYMS_1, LCD_SYMS_0,
+    LCD_SYMS_0, LCD_SYMS_1, LCD_SYMS_2, LCD_SYMS_3, LCD_SYMS_4,
     LCD_SYMS_5, LCD_SYMS_6, LCD_SYMS_7, LCD_SYMS_8, LCD_SYMS_9,
 };
 
