@@ -84,33 +84,15 @@ int main(void)
     /* Enable TIM2 global interrupt. */
     nvic_enable_irq(NVIC_TIM2_IRQ);
 
-    /** TODO: Remove?
-    * No divider, alignment edge, direction up
-    */
-    //timer_set_mode(TIM2, TIM_CR1_CKD_CK_INT,
-    //    TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
-
-    /** TODO: Remove?
-    * No divider, alignment edge, direction up
-    */
-    //timer_set_mode(TIM1, TIM_CR1_CKD_CK_INT,
-    //    TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
 
     /* Set the prescaler to get 50kHz timer clock */
     timer_set_prescaler(TIM2, ((rcc_apb1_frequency * 2) / 50000) - 1);
     /* Set the period according to the desired LCD update rate */
     timer_set_period(TIM2, (50000/LCD_UPDATE_RATE) - 1);
 
-    /** TODO: Check if needed */
-    //timer_enable_preload(TIM2);
-    //timer_continuous_mode(TIM2);
-    
     /* Enable the timer and update interrupt */
     timer_enable_counter(TIM2);
     timer_enable_irq(TIM2, TIM_DIER_UIE);
-
-    /** TODO: check if needed */ 
-    //timer_set_period(TIM1, 0xFFFF);
 
     /* Enable external clock (ETR2 input) */
     TIM_SMCR(TIM1) |= TIM_SMCR_ECE;
